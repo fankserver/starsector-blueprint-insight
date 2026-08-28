@@ -1,6 +1,6 @@
 # Blueprint Insight
 
-A save-safe Starsector 0.98a quality-of-life mod that prepends blueprint ownership as the first line of the ship description shown in fleet, storage, market, refit, and Codex tooltips.
+A save-safe Starsector 0.98a quality-of-life mod that prepends blueprint ownership to the ship summary shown in fleet, storage, market, and refit tooltips.
 
 ## Tooltip states
 
@@ -34,7 +34,7 @@ There are no required library mods.
 
 ## Save-game safety
 
-Blueprint Insight is safe to add to or remove from an existing campaign. It stores no campaign data and does not modify individual fleet members or variants. Ship descriptions are annotated only in memory and refreshed by a transient campaign script. The status uses clean sentence casing and remains in the first description paragraph so compact ship tooltips render it.
+Blueprint Insight is safe to add to or remove from an existing campaign. It stores no campaign data and does not modify individual fleet members or variants. Hull-specification description prefixes are annotated only in memory and refreshed by a transient campaign script. This targets the cached summary used by compact ship tooltips without modifying Codex description records.
 
 A full restart is required after enabling or disabling the mod.
 

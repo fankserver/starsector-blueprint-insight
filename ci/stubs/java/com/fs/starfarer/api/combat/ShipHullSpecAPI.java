@@ -2,7 +2,8 @@ package com.fs.starfarer.api.combat;
 import java.util.EnumSet;
 public interface ShipHullSpecAPI {
     String getHullId();
-    String getDescriptionId();
+    String getDescriptionPrefix();
+    void setDescriptionPrefix(String prefix);
     ShipAPI.HullSize getHullSize();
     EnumSet<ShipTypeHints> getHints();
     boolean isBuiltInMod(String id);

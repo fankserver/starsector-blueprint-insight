@@ -1,17 +1,17 @@
 package org.fankserver.blueprintinsight;
 
 import com.fs.starfarer.api.EveryFrameScript;
-import com.fs.starfarer.api.loading.Description;
+import com.fs.starfarer.api.combat.ShipHullSpecAPI;
 
 import java.util.Map;
 
 final class BlueprintDescriptionScript implements EveryFrameScript {
     private static final long REFRESH_INTERVAL_NANOS = 500_000_000L;
-    private final Map<Description, BlueprintInsightModPlugin.DescriptionEntry> descriptions;
+    private final Map<ShipHullSpecAPI, BlueprintInsightModPlugin.HullEntry> hulls;
     private long nextRefreshNanos;
 
-    BlueprintDescriptionScript(Map<Description, BlueprintInsightModPlugin.DescriptionEntry> descriptions) {
-        this.descriptions = descriptions;
+    BlueprintDescriptionScript(Map<ShipHullSpecAPI, BlueprintInsightModPlugin.HullEntry> hulls) {
+        this.hulls = hulls;
     }
 
     @Override
@@ -34,11 +34,11 @@ final class BlueprintDescriptionScript implements EveryFrameScript {
     }
 
     void refresh() {
-        for (Map.Entry<Description, BlueprintInsightModPlugin.DescriptionEntry> item
-                : descriptions.entrySet()) {
-            BlueprintInsightModPlugin.DescriptionEntry entry = item.getValue();
+        for (Map.Entry<ShipHullSpecAPI, BlueprintInsightModPlugin.HullEntry> item
+                : hulls.entrySet()) {
+            BlueprintInsightModPlugin.HullEntry entry = item.getValue();
             String status = BlueprintStatusProvider.getStatusLine(entry.hullId);
-            item.getKey().setText1(status + "\n" + entry.originalText);
+            item.getKey().setDescriptionPrefix(status + "\n" + entry.originalPrefix);
         }
     }
 }

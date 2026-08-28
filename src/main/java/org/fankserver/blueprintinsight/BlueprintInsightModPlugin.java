@@ -5,29 +5,27 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipHullSpecAPI;
-import com.fs.starfarer.api.loading.Description;
 
 import java.util.IdentityHashMap;
 import java.util.Map;
 
 public final class BlueprintInsightModPlugin extends BaseModPlugin {
-    private static final Map<Description, DescriptionEntry> DESCRIPTIONS =
-            new IdentityHashMap<Description, DescriptionEntry>();
+    private static final Map<ShipHullSpecAPI, HullEntry> HULLS =
+            new IdentityHashMap<ShipHullSpecAPI, HullEntry>();
 
     @Override
     public void onApplicationLoad() {
-        DESCRIPTIONS.clear();
+        HULLS.clear();
         for (ShipHullSpecAPI hull : Global.getSettings().getAllShipHullSpecs()) {
             if (!shouldAnnotate(hull)) {
                 continue;
             }
-            Description description = Global.getSettings().getDescription(
-                    hull.getDescriptionId(), Description.Type.SHIP);
-            if (description == null || !description.hasText1() || DESCRIPTIONS.containsKey(description)) {
+            String originalPrefix = hull.getDescriptionPrefix();
+            if (originalPrefix == null || originalPrefix.trim().isEmpty()) {
                 continue;
             }
-            DESCRIPTIONS.put(description, new DescriptionEntry(
-                    description.getText1(), BlueprintStatusProvider.getBlueprintHullId(hull)));
+            HULLS.put(hull, new HullEntry(
+                    originalPrefix, BlueprintStatusProvider.getBlueprintHullId(hull)));
         }
     }
 
@@ -35,7 +33,7 @@ public final class BlueprintInsightModPlugin extends BaseModPlugin {
     public void onGameLoad(boolean newGame) {
         SectorAPI sector = Global.getSector();
         sector.removeTransientScriptsOfClass(BlueprintDescriptionScript.class);
-        BlueprintDescriptionScript script = new BlueprintDescriptionScript(DESCRIPTIONS);
+        BlueprintDescriptionScript script = new BlueprintDescriptionScript(HULLS);
         script.refresh();
         sector.addTransientScript(script);
     }
@@ -46,12 +44,12 @@ public final class BlueprintInsightModPlugin extends BaseModPlugin {
                 && !hull.getHints().contains(ShipHullSpecAPI.ShipTypeHints.STATION);
     }
 
-    static final class DescriptionEntry {
-        final String originalText;
+    static final class HullEntry {
+        final String originalPrefix;
         final String hullId;
 
-        DescriptionEntry(String originalText, String hullId) {
-            this.originalText = originalText;
+        HullEntry(String originalPrefix, String hullId) {
+            this.originalPrefix = originalPrefix;
             this.hullId = hullId;
         }
     }

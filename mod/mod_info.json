@@ -2,7 +2,7 @@
   "id": "blueprint_insight",
   "name": "Blueprint Insight",
   "author": "Florian Kinder",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Shows blueprint ownership directly in ship descriptions, with optional Industrial.Evolution reverse-engineering progress.",
   "gameVersion": "0.98a",
   "jars": ["jars/BlueprintInsight.jar"],
