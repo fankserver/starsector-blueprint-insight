@@ -1,0 +1,63 @@
+name: Bug report
+description: Report reproducible incorrect behavior or a compatibility problem
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting a problem. Please avoid uploading sensitive information.
+  - type: input
+    id: version
+    attributes:
+      label: Blueprint Insight version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: game-version
+    attributes:
+      label: Starsector and IndEvo versions
+      placeholder: "Starsector 0.98a; IndEvo 4.1.b or not installed"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the observed and expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Hover over ...
+        2. Compare blueprint ownership ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: settings
+    attributes:
+      label: Ship and active mods
+      description: List the affected hull and mods that may affect blueprints or ship tooltips.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Paste the relevant `starsector.log` section. Remove personal information first.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues.
+          required: true
+        - label: I tested with the latest release.
+          required: true
+        - label: I backed up my save before testing.
+          required: true

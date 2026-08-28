@@ -1,0 +1,10 @@
+{
+  "id": "blueprint_insight",
+  "name": "Blueprint Insight",
+  "author": "Florian Kinder",
+  "version": "0.1.0",
+  "description": "Shows known-blueprint status on ship tooltips, with optional Industrial.Evolution reverse-engineering progress.",
+  "gameVersion": "0.98a",
+  "jars": ["jars/BlueprintInsight.jar"],
+  "modPlugin": "org.fankserver.blueprintinsight.BlueprintInsightModPlugin"
+}
