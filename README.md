@@ -15,6 +15,23 @@ With Industrial.Evolution enabled:
 - **Reverse engineering: N%**
 - **Blueprint: unknown** when there is no research progress.
 
+### At a glance
+
+The status is shown directly above Starsector's normal ship summary in the compact fleet, storage, market, and refit tooltips.
+
+<table>
+  <tr>
+    <th>Blueprint: known</th>
+    <th>Reverse engineering: 40%</th>
+    <th>Blueprint: unknown</th>
+  </tr>
+  <tr>
+    <td><img src="docs/images/blueprint-known.webp" alt="Fleet tooltip showing Blueprint: known" width="300"></td>
+    <td><img src="docs/images/reverse-engineering-progress.webp" alt="Fleet tooltip showing Reverse engineering: 40%" width="300"></td>
+    <td><img src="docs/images/blueprint-unknown.webp" alt="Fleet tooltip showing Blueprint: unknown" width="300"></td>
+  </tr>
+</table>
+
 Industrial.Evolution is optional. Blueprint Insight detects its `IndEvo` mod ID at runtime and reads its authoritative Engineering Hub progress map without linking against IndEvo classes.
 
 D-hulls and restored hulls are normalized to the same base hull used by Industrial.Evolution and vanilla blueprint ownership checks.
