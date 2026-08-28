@@ -25,7 +25,7 @@ final class BlueprintStatusProvider {
 
     static String getStatusLine(String hullId) {
         if (Global.getSector().getPlayerFaction().knowsShip(hullId)) {
-            return "Blueprint known";
+            return "Blueprint: known";
         }
 
         if (!isIndEvoEnabled()) {
@@ -35,7 +35,7 @@ final class BlueprintStatusProvider {
         float progress = getIndEvoProgress(hullId);
         if (progress > 0f) {
             int percent = Math.round(Math.min(progress, 1f) * 100f);
-            return "Reverse engineering " + percent + "%";
+            return "Reverse engineering: " + percent + "%";
         }
         return null;
     }
