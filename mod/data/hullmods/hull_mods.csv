@@ -1,2 +1,0 @@
-name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sModDesc,sprite
-Blueprint Status,blueprint_insight_status,0,,,,,0,,TRUE,,0,0,0,0,org.fankserver.blueprintinsight.BlueprintStatusHullMod,Displays whether the player faction knows this ship hull's blueprint. If Industrial.Evolution is enabled it also displays reverse-engineering progress.,Blueprint ownership and research status.,,graphics/icons/cargo/blueprint_shiphull.png

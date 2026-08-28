@@ -1,6 +1,6 @@
 # Blueprint Insight
 
-A save-safe Starsector 0.98a quality-of-life mod that displays blueprint ownership directly in ship information tooltips.
+A save-safe Starsector 0.98a quality-of-life mod that appends blueprint ownership directly to the ship description shown in fleet, storage, market, refit, and Codex tooltips.
 
 ## Tooltip states
 
@@ -30,11 +30,11 @@ There are no required library mods.
 1. Download the release ZIP.
 2. Extract it into the Starsector `mods` directory.
 3. Enable **Blueprint Insight** in the launcher.
-4. Fully restart Starsector when adding or removing it; hull specifications are annotated during application startup.
+4. Fully restart Starsector when adding or removing it; ship descriptions are loaded during application startup.
 
 ## Save-game safety
 
-Blueprint Insight is safe to add to or remove from an existing campaign. It stores no campaign data and does not modify individual fleet members or variants. Its zero-effect status hullmod is added only to runtime hull specifications, which Starsector rebuilds from mod data on every application start.
+Blueprint Insight is safe to add to or remove from an existing campaign. It stores no campaign data and does not modify individual fleet members or variants. Ship descriptions are annotated only in memory and refreshed by a transient campaign script.
 
 A full restart is required after enabling or disabling the mod.
 
