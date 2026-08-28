@@ -7,13 +7,13 @@ A save-safe Starsector 0.98a quality-of-life mod that prepends blueprint ownersh
 Without Industrial.Evolution:
 
 - **Blueprint: known** — your faction can produce the hull.
-- Unknown blueprints add no extra tooltip text.
+- **Blueprint: unknown** — your faction cannot currently produce the hull.
 
 With Industrial.Evolution enabled:
 
 - **Blueprint: known**
 - **Reverse engineering: N%**
-- Unknown blueprints with no research progress add no extra tooltip text.
+- **Blueprint: unknown** when there is no research progress.
 
 Industrial.Evolution is optional. Blueprint Insight detects its `IndEvo` mod ID at runtime and reads its authoritative Engineering Hub progress map without linking against IndEvo classes.
 
