@@ -20,12 +20,8 @@ public final class BlueprintInsightModPlugin extends BaseModPlugin {
             if (!shouldAnnotate(hull)) {
                 continue;
             }
-            String originalPrefix = hull.getDescriptionPrefix();
-            if (originalPrefix == null || originalPrefix.trim().isEmpty()) {
-                continue;
-            }
             HULLS.put(hull, new HullEntry(
-                    originalPrefix, BlueprintStatusProvider.getBlueprintHullId(hull)));
+                    hull.getDescriptionPrefix(), BlueprintStatusProvider.getBlueprintHullId(hull)));
         }
     }
 
