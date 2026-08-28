@@ -37,9 +37,13 @@ final class BlueprintDescriptionScript implements EveryFrameScript {
         for (Map.Entry<ShipHullSpecAPI, BlueprintInsightModPlugin.HullEntry> item
                 : hulls.entrySet()) {
             BlueprintInsightModPlugin.HullEntry entry = item.getValue();
-            String prefix = BlueprintStatusProvider.getStatusLine(entry.hullId);
-            if (entry.originalPrefix != null && !entry.originalPrefix.trim().isEmpty()) {
-                prefix += "\n" + entry.originalPrefix;
+            String status = BlueprintStatusProvider.getStatusLine(entry.hullId);
+            String prefix = entry.originalPrefix;
+            if (status != null) {
+                prefix = status;
+                if (entry.originalPrefix != null && !entry.originalPrefix.trim().isEmpty()) {
+                    prefix += "\n" + entry.originalPrefix;
+                }
             }
             item.getKey().setDescriptionPrefix(prefix);
         }

@@ -29,15 +29,15 @@ final class BlueprintStatusProvider {
         }
 
         if (!isIndEvoEnabled()) {
-            return "Blueprint unknown";
+            return null;
         }
 
         float progress = getIndEvoProgress(hullId);
         if (progress > 0f) {
             int percent = Math.round(Math.min(progress, 1f) * 100f);
-            return "Blueprint unknown — reverse engineering: " + percent + "%";
+            return "Reverse engineering " + percent + "%";
         }
-        return "Blueprint unknown — no reverse-engineering progress";
+        return null;
     }
 
     private static boolean isIndEvoEnabled() {
