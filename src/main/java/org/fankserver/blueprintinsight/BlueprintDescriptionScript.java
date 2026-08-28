@@ -38,7 +38,7 @@ final class BlueprintDescriptionScript implements EveryFrameScript {
                 : descriptions.entrySet()) {
             BlueprintInsightModPlugin.DescriptionEntry entry = item.getValue();
             String status = BlueprintStatusProvider.getStatusLine(entry.hullId);
-            item.getKey().setText1(entry.originalText + "\n\n" + status);
+            item.getKey().setText1(status + "\n" + entry.originalText);
         }
     }
 }
